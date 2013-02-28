@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Profile for <%= @user.name %></h2>
+
+<h2>Miles Earned: 0</h2>
+
+<h2>Reservation History</h2>
+<p>No reservations found.  You should get out more often.</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
