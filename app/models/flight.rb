@@ -10,13 +10,24 @@ class Flight < ActiveRecord::Base
     "LAX-SFO" => 338
   }
 
-  def miles
+  before_create :calculate_miles
+
+  def calculate_miles
     distance = MILEAGE_CHART["#{departure_airport}-#{arrival_airport}"]
     if distance.nil?
       distance = MILEAGE_CHART["#{arrival_airport}-#{departure_airport}"]
     end
-    distance
+    self.miles = distance
   end
+
+
+  # def miles
+  #   distance = MILEAGE_CHART["#{departure_airport}-#{arrival_airport}"]
+  #   if distance.nil?
+  #     distance = MILEAGE_CHART["#{arrival_airport}-#{departure_airport}"]
+  #   end
+  #   distance
+  # end
 
   def arrives_at
     self.departs_at + duration.minutes

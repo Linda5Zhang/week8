@@ -1,6 +1,10 @@
 OneWayAir::Application.routes.draw do
 
+  resources :reservations
+
+
   get "sign_in" => 'sessions#new', :as => :sign_in
+  get "/flights" => 'flights#index'
 
   post "sessions/create"
 
