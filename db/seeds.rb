@@ -19,7 +19,7 @@ mileage_chart = {
       departure_airport: departure_code,
       departs_at: Time.now.beginning_of_day + rand(24.hours),
       arrival_airport: arrival_code,
-      seats: rand(0..60)
+      seats: rand(60)
 
 end
 
